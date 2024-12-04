@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar bg-base-100 max-w-[1302px]">
+  <div class="navbar bg-sky-500">
     <div class="navbar-start">
       <div class="navbar-center">
         <img src="../../../../../assets/imgs/logo-core.svg" width="100" alt="">
