@@ -1,8 +1,10 @@
 <template>
   <section class="relative flex flex-col">
-    <Navbar />
-    <main class="h-screen px-64 flex-1">
-      <List />
+    <div class="flex justify-center">
+      <Navbar class="w-[1300px]"/>
+    </div>
+    <main class="h-screen flex justify-center flex-1">
+      <List class="w-[1300px]"/>
     </main>
 
     <Footer />

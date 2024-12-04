@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer bg-base-300 text-base-content px-64 py-10">
+  <footer class="footer bg-base-300 text-base-content py-10">
     <nav>
       <h6 class="footer-title">Services</h6>
       <a class="link link-hover">Branding</a>

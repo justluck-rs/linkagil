@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed z-[1000] navbar bg-base-100 px-64">
+  <div class="fixed z-[1000] navbar bg-base-100">
     <div class="navbar-start">
       <div class="navbar-center">
         <img src="../../../../../assets/imgs/logo-core.svg" alt="">
