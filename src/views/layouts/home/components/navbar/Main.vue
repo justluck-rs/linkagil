@@ -1,8 +1,8 @@
 <template>
-  <div class="fixed z-[1000] navbar bg-base-100">
+  <div class="navbar bg-base-100 max-w-[1302px]">
     <div class="navbar-start">
       <div class="navbar-center">
-        <img src="../../../../../assets/imgs/logo-core.svg" alt="">
+        <img src="../../../../../assets/imgs/logo-core.svg" width="100" alt="">
       </div>
     </div>
     <div class="navbar-end">
