@@ -1,14 +1,21 @@
 <template>
   <div>
-    <nav>Navegação aqui</nav>
-    <aside>
-      aside aqui de alguma forma
-    </aside>
-    <main>
-      <slot>Lista de Cards dos profissionais</slot>
+    <Navbar/>
+
+    <!-- <Aside/> -->
+
+    <main class="h-screen">
+      <slot>
+        <Card/>
+      </slot>
     </main>
-    <footer>
-      footer aqui
-    </footer>
+
+    <Footer/>
   </div>
 </template>
+
+<script setup>
+  import Navbar from './components/navbar/Main.vue'
+  import Footer from './components/footer/Main.vue'
+  import Card from './professional/card/Main.vue'
+</script>
