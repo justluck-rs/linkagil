@@ -1,9 +1,11 @@
 <template>
   <section class="relative flex flex-col">
-    <div class=" flex justify-center">
+    <div class="flex justify-center">
       <Navbar class="w-screen fixed z-[1000]" />
     </div>
-    <Professionals />
+    <main class="flex-1 mt-10">
+      <Professionals />
+    </main>
     <Footer />
   </section>
 </template>

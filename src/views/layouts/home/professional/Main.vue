@@ -1,9 +1,10 @@
 <template>
-  <main class="h-screen flex justify-center flex-1">
-    <List class="w-[1300px]" />
-  </main>
+  <section>
+    <main class="h-auto flex justify-center">
+      <List />
+    </main>
+  </section>
 </template>
-
 <script setup>
 import List from './list/Main.vue'
 </script>
