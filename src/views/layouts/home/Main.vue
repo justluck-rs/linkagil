@@ -2,116 +2,119 @@
   <section class="min-h-screen flex flex-col transaction">
     <!-- Navbar -->
     <nav :class="navbarClass"
-      class="text-white bg-white rounded-b-[20px] top-0 z-50 transition-transform ease-in-out duration-300">
-      <div class="container mx-auto space-y-2 pb-4 mb-6">
-        <header class="py-4 flex justify-between items-center transition-transform duration-700 ease-in-out"
-          :class="{ 'top-0': isScrolled }">
-          <div>
-            <h1 class="text-lg font-bold text-black">Linkágil</h1>
-          </div>
-          <div>
-            <div class="bg-sky-500 py-2 px-6 rounded flex items-center gap-2 text-base cursor-pointer">
-              <p>Entrar</p>
+      class="text-white bg-white top-0 z-50 transition transition-transform ease-in-out duration-300">
+      <div class="mx-auto">
+        <header class="bg-sky-300" :class="{ 'top-0': isScrolled }">
+          <div
+            class="sm:container flex justify-between items-center transition transition-transform gap-10 duration-700 ease-in-out">
+            <div>
+              <h1 class="py-2 px-4 text-lg cursor-pointer">Linkágil</h1>
+            </div>
+            <div class="flex justify-center items-center gap-2">
+              <div class="py-2 px-4 rounded flex items-center gap-2 text-base cursor-pointer">
+                <p class="border-b">Cadastrar</p>
+              </div>
+              <div class="py-2 px-4 rounded flex items-center gap-2 text-base cursor-pointer">
+                <p class="border-b">Entrar</p>
+              </div>
             </div>
           </div>
         </header>
+        <article v-if="isScrolled"
+          class="w-full pt-4 flex justify-center flex-col items-center transition transition-transform duration-700 ease-in-out">
+          <section class="min-w-[50%] bg-white rounded text-black border">
+            <div class="flex justify-between items-center gap-2">
+              <input id="search" placeholder="Pesquisar especialidade, motivo ou um nome..."
+                class="flex-1 p-2 rounded-md outline-none text-gray-700" />
+              <Sheet>
+                <SheetTrigger as-child>
+                  <div class="flex p-2 px-4 items-center gap-2 cursor-pointer border-l">
+                    <span>Filtros</span>
+                    <Icon icon="lucide:filter" />
+                  </div>
+                </SheetTrigger>
 
-        <article v-if="isScrolled" class="transition-transform duration-700 ease-in-out mb-4">
-          <div class="flex flex-col text-center py-1">
-            <span class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-purple-600">
-              Encontre o Psicólogo Ideal para Você
-            </span>
-            <span class="mt-4 text-sm text-black">
-              Conecte-se com profissionais qualificados para cuidar da sua saúde mental e bem-estar.
-            </span>
-          </div>
-        </article>
+                <SheetContent side="right" class="h-screen overflow-y-auto">
+                  <SheetHeader>
+                    <SheetTitle>Filtrar Profissionais</SheetTitle>
+                    <SheetDescription>
+                      Utilize os filtros abaixo para encontrar o profissional ideal.
+                    </SheetDescription>
+                  </SheetHeader>
 
-        <!-- Search Section -->
-        <section class=" bg-white rounded text-black border">
-          <div class="flex justify-between items-center gap-2 px-4">
-            <input id="search" placeholder="Pesquisar especialidade, motivo ou um nome..."
-              class="flex-1 p-2 rounded-md outline-none text-gray-700" />
-            <Sheet>
-              <SheetTrigger as-child>
-                <div class="flex p-4 items-center gap-2 cursor-pointer border-l">
-                  <span>Filtros</span>
-                  <Icon icon="lucide:filter" />
-                </div>
-              </SheetTrigger>
-
-              <SheetContent side="top" class="h-screen overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle>Filtrar Profissionais</SheetTitle>
-                  <SheetDescription>
-                    Utilize os filtros abaixo para encontrar o profissional ideal.
-                  </SheetDescription>
-                </SheetHeader>
-
-                <div class="grid gap-6 mt-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                  <!-- Iterando sobre os filtros -->
-                  <div v-for="(filterGroup, index) in filters" :key="index" class="">
-                    <h3 class="text-lg font-semibold mb-4">{{ filterGroup.name }}</h3>
-                    <div class="scroller overflow-y-auto max-h-60">
-                      <Table>
-                        <TableHeader>
-                          <TableRow>
-                            <TableHead>Opção</TableHead>
-                            <TableHead class="w-[100px] text-right">Selecionar</TableHead>
-                          </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                          <TableRow v-for="(filter, i) in filterGroup.filters" :key="i">
-                            <TableCell>{{ filter.label }}</TableCell>
-                            <TableCell class="text-right">
-                              <Checkbox :checked="isSelected(filter.value, filterGroup.ref)"
-                                @click="toggleFilter(filter.value, filterGroup.ref)" />
-                            </TableCell>
-                          </TableRow>
-                        </TableBody>
-                      </Table>
+                  <div class="grid gap-6 mt-6 grid-cols-1">
+                    <!-- Iterando sobre os filtros -->
+                    <div v-for="(filterGroup, index) in filters" :key="index" class="">
+                      <h3 class="text-lg font-semibold mb-4">{{ filterGroup.name }}</h3>
+                      <div class="scroller overflow-y-auto max-h-60">
+                        <Table>
+                          <TableHeader>
+                            <TableRow>
+                              <TableHead>Opção</TableHead>
+                              <TableHead class="w-[100px] text-right">Selecionar</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            <TableRow v-for="(filter, i) in filterGroup.filters" :key="i">
+                              <TableCell>{{ filter.label }}</TableCell>
+                              <TableCell class="text-right">
+                                <Checkbox :checked="isSelected(filter.value, filterGroup.ref)"
+                                  @click="toggleFilter(filter.value, filterGroup.ref)" />
+                              </TableCell>
+                            </TableRow>
+                          </TableBody>
+                        </Table>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <SheetFooter class="mt-6 flex justify-between items-center">
-                  <Button variant="outline" @click="clearAllFilters" class="mr-4">
-                    Limpar Filtros
-                  </Button>
-                  <SheetClose as-child>
-                    <Button @click="applyFilters">
-                      Aplicar Filtros
+                  <SheetFooter class="mt-6 flex justify-between items-center gap-2">
+                    <Button variant="outline" @click="clearAllFilters" class="w-full">
+                      Limpar Filtros
                     </Button>
-                  </SheetClose>
-                </SheetFooter>
-              </SheetContent>
-            </Sheet>
-          </div>
-        </section>
+                    <SheetClose as-child>
+                      <Button class="w-full" @click="applyFilters">
+                        Aplicar Filtros
+                      </Button>
+                    </SheetClose>
+                  </SheetFooter>
+                </SheetContent>
+              </Sheet>
+            </div>
+          </section>
+          <section class="flex justify-center items-center gap-3 flex-wrap p-4">
+            <div v-for="item in 10" :key="item.id" class="bg-slate-50 text-black p-4 shadow rounded">
+              <div>cat</div>
+            </div>
+          </section>
+        </article>
       </div>
     </nav>
 
     <!-- Área principal -->
     <main class="mx-4 md:container mt-10" :class="{ 'mt-64': !isScrolled }">
       <div class="flex-grow">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <article v-for="(psychologist, index) in psychologists" :key="index"
             class="p-4 bg-white shadow-md rounded-lg hover:shadow-lg transition-all flex flex-col justify-between gap-4">
-            <div class="flex items-center gap-4">
-              <img :src="psychologist.photo" alt="Foto"
-                class="w-12 h-12 rounded-full border border-gray-200 object-cover" />
+            <div class="flex items-start gap-4">
+              <!-- <img :src="psychologist.photo" alt="Foto"
+                class="w-12 h-12 rounded-full border border-gray-200 object-cover" /> -->
+              <div class="w-12 h-12 rounded-full border border-gray-200 object-cover flex justify-center items-center">
+                <Icon icon="lucide:user" class="text-xl text-gray-400 cursor-pointer hover:text-sky-500 transition" />
+              </div>
               <div class="flex-1">
                 <h2 class="text-sm font-semibold text-gray-800">{{ psychologist.name }}</h2>
                 <p class="text-xs text-gray-500">CRP: {{ psychologist.crp }}</p>
-                <div class="flex items-center gap-1 text-yellow-400">
-                  <Icon icon="ant-design:star-filled" v-for="i in 5" :key="i" />
-                  ({{ psychologist.rating }})
-                </div>
               </div>
-              <Icon icon="material-symbols:info-outline"
-                class="text-xl text-gray-400 cursor-pointer hover:text-sky-500 transition" />
+              <div class="flex justify-between items-start">
+                <button class="flex justify-center items-center gap-2 px-2 hover:border-l-2 border-sky-500">
+                  <span>Ver perfil completo</span>
+                  <Icon icon="lucide:arrow-right" />
+                </button>
+              </div>
             </div>
-            <Separator class="my-4" label="Sobre" />
+            <Separator label="Sobre" />
             <div class="flex items-center justify-between">
               <p class="text-xs text-gray-500 text-justify">
                 "{{ psychologist.description }}"
@@ -120,11 +123,9 @@
 
             <div class="flex justify-between items-center">
               <p class="text-xs font-semibold text-gray-800">{{ psychologist.price }}</p>
-              <div class="flex justify-between items-center">
-                <button class="flex justify-center items-center gap-2 p-2 hover:border-l-2 border-sky-500">
-                  <span>Ver perfil completo</span>
-                  <Icon icon="lucide:arrow-right" />
-                </button>
+              <div class="flex items-center gap-1 text-yellow-400">
+                <Icon icon="ant-design:star-filled" v-for="i in 5" :key="i" />
+                ({{ psychologist.rating }})
               </div>
             </div>
             <button
@@ -139,8 +140,8 @@
 
     <!-- Footer -->
 
-    <footer class="bg-white text-black py-4 px-6 md:px-12 mt-24">
-      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+    <footer class="bg-sky-200 text-black py-4 px-6 md:px-12 mt-24">
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
         <!-- About Section -->
         <div>
           <h3 class="text-xl font-bold mb-4">Sobre o Linkágil</h3>
@@ -162,16 +163,28 @@
         </div>
 
         <!-- Categories -->
-        <div>
-          <h3 class="text-xl font-bold mb-2">Categorias</h3>
-          <ul class="space-y-2">
-            <li><a href="#" class="hover:underline">Psicologia Clínica</a></li>
-            <li><a href="#" class="hover:underline">Terapia de Casal</a></li>
-            <li><a href="#" class="hover:underline">Psicanálise</a></li>
-            <li><a href="#" class="hover:underline">Terapia Infantil</a></li>
-          </ul>
+        <div v-for="(filterGroup, index) in filters" :key="index" class="">
+          <h3 class="text-lg font-semibold mb-4">{{ filterGroup.name }}</h3>
+          <div class="scroller overflow-y-auto max-h-60">
+            <Table>
+              <TableHeader>
+              </TableHeader>
+              <TableBody>
+                <TableRow v-for="(filter, i) in filterGroup.filters" :key="i">
+                  <tr><a href="#">{{ filter.label }}</a></tr>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
         </div>
       </div>
+
+      <section class="container">
+        <div class="grid gap-6 mt-6 grid-cols-4 justify-center">
+          <!-- Iterando sobre os filtros -->
+
+        </div>
+      </section>
 
       <!-- Social Media -->
       <div class="mt-10 flex justify-center space-x-6">
@@ -190,7 +203,7 @@
       </div>
 
       <!-- Footer Bottom -->
-      <div class="mt-8 border-t border-gray-500 pt-4 text-center text-sm">
+      <div class="mt-8 border-gray-500 pt-4 text-center">
         <p>&copy; 2024 Linkágil. Todos os direitos reservados.</p>
       </div>
     </footer>

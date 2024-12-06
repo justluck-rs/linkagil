@@ -1,8 +1,8 @@
 <template>
   <!-- <routerView /> -->
-   <div class="bg-sky-500 text-xs overflow-hidden">
+  <div class="bg-slate-50 text-xs overflow-hidden">
     <Home />
-   </div>
+  </div>
 </template>
 <script setup>
 import Home from '@/views/layouts/home/Main.vue'
