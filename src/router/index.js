@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-// Auth
-import AuthLayout from '@/views/layouts/auth/Main.vue'
-import Login from '@/views/layouts/auth/login/Main.vue'
-import Register from '@/views/layouts/auth/register/Main.vue'
+// // Auth
+// import AuthLayout from '@/views/layouts/auth/Main.vue'
+// import Login from '@/views/layouts/auth/login/Main.vue'
+// import Register from '@/views/layouts/auth/register/Main.vue'
 
-// Home
+// // Home
 import HomeLayout from '@/views/layouts/home/Main.vue'
-import AboutProfessional from '@/views/layouts/home/professional/Main.vue'
+import AboutProfessional from '@/views/modules/professionals/Main.vue'
 
 // Error page
 import ErrorPage from '@/views/error-page/Main.vue'
@@ -15,22 +15,23 @@ import ErrorPage from '@/views/error-page/Main.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [{
-    path: '/auth',
-    component: AuthLayout,
-    children: [
-      {
-        path: 'login',
-        name: 'login',
-        component: Login,
-      },
-      {
-        path: 'register',
-        name: 'register',
-        component: Register,
-      },
-    ],
-  },
+  routes: [
+  //   {
+  //   path: '/auth',
+  //   component: AuthLayout,
+  //   children: [
+  //     {
+  //       path: 'login',
+  //       name: 'login',
+  //       component: Login,
+  //     },
+  //     {
+  //       path: 'register',
+  //       name: 'register',
+  //       component: Register,
+  //     },
+  //   ],
+  // },
   {
     path: '/',
     component: HomeLayout,
