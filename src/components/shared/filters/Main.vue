@@ -1,34 +1,20 @@
 <template>
-        <section class="rounded-lg px-4 flex flex-col gap-3 scroller overflow-x-auto col-span-3 lg:col-span-1">
-          <Separator label="Filtros" class="mt-2" />
+        <section class="rounded-lg px-4 flex flex-col gap-3 col-span-3 lg:col-span-1">
+          <!-- <Separator label="Filtros" class="mt-2" /> -->
           <article class="mb-2">
-            <section class="left-0 border mt-2 rounded">
-              <div class="bg-teal-200 flex justify-between items-center gap-2 p-1">
-                <input id="search" placeholder="Pesquisar Especialidade, Motivo ou um Nome..."
-                  class="flex-1 px-2 py-3 outline-none " />
-                  <span class="cursor-pointer px-2">
-                    <Icon icon="lucide:search" class="text-lg" />
-                  </span>
-              </div>
-            </section>
-            <section class="left-0 border mt-2 rounded">
-              <div class="bg-teal-200 flex justify-between items-center gap-2 p-1">
-                <input id="search" placeholder="Pesquisar Estado, Cidade, Localidade..."
-                  class="flex-1 px-2 py-3 outline-none " />
-                  <span class="cursor-pointer px-2">
-                    <Icon icon="lucide:search" class="text-lg" />
-                  </span>
-              </div>
-            </section>
-            <section class="left-0 border mt-2 rounded">
+            <div class="relative w-full max-w-sm items-center">
+              <Input id="search" type="text" placeholder="Search..." class="pl-10 bg-white" />
+              <span class="absolute start-0 inset-y-0 flex items-center justify-center px-2">
+                <Icon icon="lucide:search" class="text-lg" />
+              </span>
+            </div>
+            <section class="left-0 mt-1 text-lg">
               <Sheet>
                 <SheetTrigger as-child>
-                  <div class="bg-teal-200 flex justify-between p-4 items-center gap-2 cursor-pointer">
-                    <span>Selecionar Vários</span>
-                    <Icon icon="lucide:filter" class="text-lg" />
-                  </div>
+                    <Button variant="link" class="pl-1">
+                      Mais filtros <Icon icon="lucide:filter" class="text-lg" />
+                    </Button>
                 </SheetTrigger>
-
                 <SheetContent side="right"
                   class="min-w-[100%] md:min-w-[70%] xl:min-w-[50%] h-screen overflow-y-auto">
                   <SheetHeader>
@@ -86,6 +72,7 @@
 
 import { ref } from 'vue'
 import { Icon } from '@iconify/vue';
+import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import { Button } from '@/components/ui/button'
 import {
@@ -170,7 +157,7 @@ defineExpose({
 
 <style scoped>
 .scroller {
-  scrollbar-width: thin;
+  scrollbar-width: none;
   scrollbar-color: rgba(0, 0, 0, 0.4) initial;
 }
 

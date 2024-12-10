@@ -27,7 +27,7 @@
         </div>
       </div>
       <button
-        class="bg-white hover:text-gray-700 flex justify-center items-center gap-2  hover:sky-500 shadow p-2 rounded ">
+        class="bg-green-500 text-white hover:bg-green-700 hover:text-white flex justify-center items-center gap-2  hover:sky-500 shadow p-2 rounded ">
         <Icon icon="meteor-icons:whatsapp" class="text-xl" />
         <span>Enviar Mensagem</span>
       </button>

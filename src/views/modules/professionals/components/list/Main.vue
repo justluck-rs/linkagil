@@ -30,7 +30,7 @@ const sendMessage = (professional) => {
 </script>
 <style scoped>
 .scroller {
-  scrollbar-width: thin;
+  scrollbar-width: none;
   scrollbar-color: rgba(0, 0, 0, 0.4) initial;
 }
 

@@ -1,15 +1,15 @@
 <template>
-  <nav class="fixed w-full bg-teal-300 text-gray-700 top-0 z-50 transition ease-in-out duration-300">
+  <nav class="fixed w-full bg-teal-950 text-teal-700 top-0 z-50 transition ease-in-out duration-300">
     <div :class="props.navbarClass" class="mx-auto">
       <header class="text-gray-700 py-2 border-b" :class="{ 'top-0': props.isScrolled }">
         <div class="sm:container flex justify-between items-center transition gap-10 duration-700 ease-in-out">
           <div>
-            <h1 class="py-2 px-4 text-lg cursor-pointer">Linkágil</h1>
+            <!-- <h1 class="py-2 px-4 text-lg cursor-pointer">Linkágil</h1> -->
+            <img src="../../../assets/imgs/logo-core.svg" alt="" class="w-[50%]">
           </div>
           <div class="flex justify-center items-center gap-2">
-            <div class="py-2 px-4 rounded flex items-center text-base cursor-pointer">
-              <p>Entrar</p>
-            </div>
+            <Button variant="outline" class="text-teal-700 hover:text-teal-500 border-teal-700">Registrar</Button>
+            <Button class="bg-teal-700 hover:bg-teal-600">Entrar</Button>
           </div>
         </div>
       </header>
@@ -17,6 +17,8 @@
   </nav>
 </template>
 <script setup>
+import { Button } from '@/components/ui/button'
+
 const props = defineProps({
   navbarClass: {
     type: String,
