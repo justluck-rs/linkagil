@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 // // Auth
-// import AuthLayout from '@/views/layouts/auth/Main.vue'
-// import Login from '@/views/layouts/auth/login/Main.vue'
-// import Register from '@/views/layouts/auth/register/Main.vue'
+import AuthLayout from '@/views/layouts/auth/Main.vue'
+import Login from '@/views/layouts/auth/login/Main.vue'
+import Register from '@/views/layouts/auth/register/Main.vue'
 
 // // Home
 import HomeLayout from '@/views/layouts/home/Main.vue'
@@ -16,22 +16,22 @@ import ErrorPage from '@/views/error-page/Main.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-  //   {
-  //   path: '/auth',
-  //   component: AuthLayout,
-  //   children: [
-  //     {
-  //       path: 'login',
-  //       name: 'login',
-  //       component: Login,
-  //     },
-  //     {
-  //       path: 'register',
-  //       name: 'register',
-  //       component: Register,
-  //     },
-  //   ],
-  // },
+    {
+    path: '/auth',
+    component: AuthLayout,
+    children: [
+      {
+        path: 'login',
+        name: 'login',
+        component: Login,
+      },
+      {
+        path: 'register',
+        name: 'register',
+        component: Register,
+      },
+    ],
+  },
   {
     path: '/',
     component: HomeLayout,

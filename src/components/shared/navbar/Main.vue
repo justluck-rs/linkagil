@@ -8,8 +8,8 @@
             <img src="../../../assets/imgs/logo-core.svg" alt="" class="w-[50%]">
           </div>
           <div class="flex justify-center items-center gap-2">
-            <Button variant="outline" class="text-teal-700 hover:text-teal-500 border-teal-700">Registrar</Button>
-            <Button class="bg-teal-700 hover:bg-teal-600">Entrar</Button>
+            <a variant="outline" class="bg-white p-2 px-4 rounded-md text-teal-700 hover:text-teal-500 border-teal-700 font-bold" href="auth/register">Registrar</a>
+            <a class=" p-2 px-4 rounded-md bg-teal-700 hover:bg-teal-600 text-white font-bold" href="auth/login">Entrar</a>
           </div>
         </div>
       </header>

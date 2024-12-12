@@ -1,3 +1,5 @@
 <template>
-  <div>Layout de autenticação</div>
+  <section class="min-h-screen">
+    <routerView />
+  </section>
 </template>
