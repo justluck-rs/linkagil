@@ -8,6 +8,7 @@ import Register from '@/views/layouts/auth/register/Main.vue'
 // // Home
 import HomeLayout from '@/views/layouts/home/Main.vue'
 import AboutProfessional from '@/views/modules/professionals/Main.vue'
+import Profile from '@/views/modules/professionals/components/profile/Main.vue'
 
 // Error page
 import ErrorPage from '@/views/error-page/Main.vue'
@@ -40,6 +41,11 @@ const router = createRouter({
         path: '/',
         name: 'professional',
         component: AboutProfessional,
+      },
+      {
+        path: 'profile',
+        name: 'profile',
+        component: Profile,
       },
     ],
   },

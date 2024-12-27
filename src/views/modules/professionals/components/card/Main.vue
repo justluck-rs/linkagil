@@ -11,10 +11,10 @@
           <p class="text-xs ">CRP: {{ professional.crp }}</p>
         </div>
         <div>
-          <button class="flex justify-center items-center gap-2 px-2 hover:border-l-2 ">
+          <a class="flex justify-center items-center gap-2 px-2 hover:border-l-2 " href="perfil">
             <span>Ver perfil</span>
             <Icon icon="lucide:arrow-right" />
-          </button>
+          </a>
         </div>
       </div>
       <hr>

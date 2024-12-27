@@ -1,10 +1,15 @@
 <template>
   <section class="min-h-screen flex flex-col transaction">
-    <main class="px-2 sm:container mx-auto md:px-10 mt-20" :class="{ 'mt-24': !isScrolled }">
+    <main v-if="$route.path == '/'" class="px-2 sm:container mx-auto md:px-10 mt-20" :class="{ 'mt-24': !isScrolled }">
       <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         <FilterSidebar :filters="filters" :categories="categories" @apply-filters="applyFilters"
           @clear-filters="clearAllFilters" />
         <ProfessionalList :professionals="professionals" />
+      </div>
+    </main>
+    <main  v-if="$route.path == '/perfil'" class="px-2 sm:container mx-auto md:px-10 mt-20" :class="{ 'mt-24': !isScrolled }">
+      <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <Profile :professionals="professionals" />
       </div>
     </main>
   </section>
@@ -14,6 +19,7 @@
 import { onMounted, onUnmounted, ref } from 'vue';
 import FilterSidebar from '@/components/shared/filters/Main.vue'
 import ProfessionalList from '@/views/modules/professionals/components/list/Main.vue'
+import Profile from '@/views/modules/professionals/components/profile/Main.vue'
 
 const isScrolled = ref(true);
 function handleScroll(){
