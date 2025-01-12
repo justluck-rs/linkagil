@@ -7,10 +7,9 @@
         <ProfessionalList :professionals="professionals" />
       </div>
     </main>
-    <main  v-if="$route.path == '/perfil'" class="px-2 sm:container mx-auto md:px-10 mt-20" :class="{ 'mt-24': !isScrolled }">
-      <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-        <Profile :professionals="professionals" />
-      </div>
+    <div class="min-h-screen">{{$route.path}}</div>
+    <main class="px-2 sm:container mx-auto md:px-10 mt-26">
+      <Profile :professionals="professionals" />
     </main>
   </section>
 </template>

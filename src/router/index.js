@@ -10,6 +10,10 @@ import HomeLayout from '@/views/layouts/home/Main.vue'
 import AboutProfessional from '@/views/modules/professionals/Main.vue'
 import Profile from '@/views/modules/professionals/components/profile/Main.vue'
 
+// settings
+
+import Dashboard from '@/views/modules/settings/Main.vue'
+
 // Error page
 import ErrorPage from '@/views/error-page/Main.vue'
 
@@ -18,37 +22,49 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-    path: '/auth',
-    component: AuthLayout,
-    children: [
+      path: '/auth',
+      component: AuthLayout,
+      children: [
+        {
+          path: 'login',
+          name: 'login',
+          component: Login,
+        },
+        {
+          path: 'register',
+          name: 'register',
+          component: Register,
+        },
+      ],
+    },
+    {
+      path: '/',
+      component: HomeLayout,
+      children: [
+        {
+          path: '',
+          name: 'professional',
+          component: AboutProfessional,
+        },
+        {
+          path: 'profile',
+          name: 'profile',
+          component: Profile,
+        },
+      ],
+    },
       {
-        path: 'login',
-        name: 'login',
-        component: Login,
+        path: '/setting',
+        component: AuthLayout,
+        children: [
+          {
+            path: 'dashboard',
+            name: 'dashboard',
+            component: Dashboard,
+          },
+        ],
       },
-      {
-        path: 'register',
-        name: 'register',
-        component: Register,
-      },
-    ],
-  },
-  {
-    path: '/',
-    component: HomeLayout,
-    children: [
-      {
-        path: '/',
-        name: 'professional',
-        component: AboutProfessional,
-      },
-      {
-        path: 'profile',
-        name: 'profile',
-        component: Profile,
-      },
-    ],
-  },
+
   // {
   //   path: '/',
   //   component: DashboardLayout,

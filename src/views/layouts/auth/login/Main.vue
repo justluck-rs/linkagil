@@ -1,101 +1,66 @@
 <template>
-  <section class="min-h-screen bg-white flex justify-center items-center mt-[-90px]">
-    <Tabs default-value="account" class="w-[400px]">
-      <TabsList class="grid w-full grid-cols-2">
-        <TabsTrigger value="account">
-          Profissional
-        </TabsTrigger>
-        <TabsTrigger value="password">
-          Paciente
-        </TabsTrigger>
-      </TabsList>
-      <TabsContent value="account">
-        <Card>
-          <CardHeader>
-            <CardTitle>Profissional</CardTitle>
-            <CardDescription>
-              Login somente para os profissionail. Informe seu email e senha e clique em Entrar.
-            </CardDescription>
-          </CardHeader>
-          <CardContent class="space-y-3">
-            <div class="space-y-1">
-              <Label for="name">Email</Label>
-              <Input id="name" type="email" placeholder="email"/>
+  <div class="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
+    <div class="flex items-center justify-center py-12">
+      <div class="mx-auto grid w-[350px] gap-6">
+        <div class="grid gap-2 text-center">
+          <h1 class="text-3xl font-bold">
+            Login
+          </h1>
+          <p class="text-balance text-muted-foreground">
+            Enter your email below to login to your account
+          </p>
+        </div>
+        <div class="grid gap-4">
+          <div class="grid gap-2">
+            <Label for="email">Email</Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="m@example.com"
+              required
+            />
+          </div>
+          <div class="grid gap-2">
+            <div class="flex items-center">
+              <Label for="password">Password</Label>
+              <a
+                href="/forgot-password"
+                class="ml-auto inline-block text-sm underline"
+              >
+                Forgot your password?
+              </a>
             </div>
-            <div class="space-y-1">
-              <Label for="username">Senha</Label>
-              <Input id="username" type="password" placeholder="senha"/>
-            </div>
-          </CardContent>
-          <CardFooter class="flex flex-col">
-            <Button class="w-full">Entrar</Button>
-            <div class="mt-3">Ainda não possuo uma <a class="text-teal-700" href="register">Conta</a></div>
-          </CardFooter>
-        </Card>
-      </TabsContent>
-      <TabsContent value="password">
-        <Card>
-          <CardHeader>
-            <CardTitle>Paciente</CardTitle>
-            <CardDescription>
-              Login somente para os Pacientes. Informe seu email e senha e clique em Entrar.
-            </CardDescription>
-          </CardHeader>
-          <CardContent class="space-y-3">
-            <div class="space-y-1">
-              <Label for="name">Email</Label>
-              <Input id="name" type="email" placeholder="email"/>
-            </div>
-            <div class="space-y-1">
-              <Label for="username">Senha</Label>
-              <Input id="username" type="password" placeholder="senha"/>
-            </div>
-          </CardContent>
-          <CardFooter class="flex flex-col">
-            <Button class="w-full">Entrar</Button>
-            <div class="mt-3">Ainda não possuo uma <a class="text-teal-700" href="register">Conta</a></div>
-          </CardFooter>
-        </Card>
-      </TabsContent>
-    </Tabs>
-
-    <!-- <div>
-      <div class="p-4 w-full flex justify-center">
-        <img src="../../../../assets/imgs/fivcon-logo-small.svg" alt="" class="w-[20%]">
+            <Input id="password" type="password" required />
+          </div>
+          <Button type="submit" class="w-full">
+            Login
+          </Button>
+          <Button variant="outline" class="w-full">
+            Login with Google
+          </Button>
+        </div>
+        <div class="mt-4 text-center text-sm">
+          Don't have an account?
+          <a href="#" class="underline">
+            Sign up
+          </a>
+        </div>
       </div>
-      <Card class="bg-white p-6 w-[450px]">
-        <div class="grid w-full items-center gap-1.5 mb-4">
-          <Input id="email" type="email" placeholder="Email" />
-        </div>
-        <div class="grid w-full items-center gap-1.5 mb-4">
-          <Input id="password" type="password" placeholder="password" />
-        </div>
-        <br>
-        <Button type="submit" class="w-full text-white" @click="login">
-          Entrar
-        </Button>
-        <div class="mt-3">Ainda não possuo uma <a class="text-teal-700" href="register">conta</a></div>
-      </Card>
-    </div> -->
-  </section>
+    </div>
+    <div class="hidden bg-muted lg:block">
+      <img
+        src="../../../../assets/imgs/casule-psicologia-juiz-de-fora-psicologia-atual.jpg"
+        alt="Image"
+        width="1920"
+        height="1080"
+        class="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+      >
+    </div>
+  </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
   import { Button } from '@/components/ui/button'
-  import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-  } from '@/components/ui/card'
   import { Input } from '@/components/ui/input'
   import { Label } from '@/components/ui/label'
-  import {
-    Tabs,
-    TabsContent,
-    TabsList,
-    TabsTrigger,
-  } from '@/components/ui/tabs'
 </script>
