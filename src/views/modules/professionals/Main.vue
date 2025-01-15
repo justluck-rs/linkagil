@@ -7,10 +7,10 @@
         <ProfessionalList :professionals="professionals" />
       </div>
     </main>
-    <div class="min-h-screen">{{$route.path}}</div>
-    <main class="px-2 sm:container mx-auto md:px-10 mt-26">
+    <!-- <div class="min-h-screen">{{$route.path}}</div> -->
+    <!-- <main class="px-2 sm:container mx-auto md:px-10 mt-26">
       <Profile :professionals="professionals" />
-    </main>
+    </main> -->
   </section>
 </template>
 
