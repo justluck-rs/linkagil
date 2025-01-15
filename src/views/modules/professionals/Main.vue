@@ -18,7 +18,6 @@
 import { onMounted, onUnmounted, ref } from 'vue';
 import FilterSidebar from '@/components/shared/filters/Main.vue'
 import ProfessionalList from '@/views/modules/professionals/components/list/Main.vue'
-import Profile from '@/views/modules/professionals/components/profile/Main.vue'
 
 const isScrolled = ref(true);
 function handleScroll(){
