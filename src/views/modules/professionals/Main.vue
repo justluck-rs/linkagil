@@ -1,23 +1,48 @@
 <template>
   <section class="min-h-screen flex flex-col transaction">
+    <main class="px-2 sm:container mx-auto md:px-10 mt-20 flex justify-center">
+      <div class="mt-16 w-[50%]">
+        <div class="text-center mb-20">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Encontre o Psicólogo Ideal para Você
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Conectamos você aos melhores profissionais de psicologia, com atendimento online ou presencial.
+          </p>
+        </div>
+        <div class="flex items-center bg-white rounded-lg shadow-md p-2">
+          <Icon icon="lucide:search" class="text-muted-foreground" width="24" height="24" />
+          <input
+            type="text"
+            placeholder="Busque por especialidade, nome ou cidade..."
+            class="w-full px-4 py-2 outline-none"
+          />
+          <Button class="bg-teal-600 hover:bg-teal-700 transition-colors">
+            Buscar
+          </Button>
+        </div>
+      </div>
+    </main>
+
     <main v-if="$route.path == '/'" class="px-2 sm:container mx-auto md:px-10 mt-20" :class="{ 'mt-24': !isScrolled }">
-      <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-4">
         <FilterSidebar :filters="filters" :categories="categories" @apply-filters="applyFilters"
           @clear-filters="clearAllFilters" />
+        <FilterButton/>
         <ProfessionalList :professionals="professionals" />
       </div>
     </main>
-    <!-- <div class="min-h-screen">{{$route.path}}</div> -->
-    <!-- <main class="px-2 sm:container mx-auto md:px-10 mt-26">
-      <Profile :professionals="professionals" />
-    </main> -->
   </section>
 </template>
 
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
+import { Button } from "@/components/ui/button"
+import { Icon } from '@iconify/vue'
 import FilterSidebar from '@/components/shared/filters/Main.vue'
+import FilterButton from '@/views/modules/professionals/components/Filters/Main.vue'
 import ProfessionalList from '@/views/modules/professionals/components/list/Main.vue'
+
 
 const isScrolled = ref(true);
 function handleScroll(){
@@ -422,20 +447,6 @@ const selectedFilters = ref({
   ethnicity: [],
 })
 
-function isSelected(ref, group){
-  return selectedFilters.value[group]?.includes(ref);
-};
-
-function toggleFilter(value, group){
-  const groupFilters = selectedFilters.value[group] || [];
-  console.log(groupFilters);
-  const index = groupFilters.indexOf(value);
-  if (index > -1) {
-    selectedFilters.value[group].splice(index, 1);
-  } else {
-    selectedFilters.value[group].push(value);
-  }
-};
 function applyFilters(){
   console.log('Aplicando filtros:', selectedFilters.value);
 };
