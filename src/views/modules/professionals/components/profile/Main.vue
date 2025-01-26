@@ -1,6 +1,9 @@
 <template>
-  <div class="min-h-screen bg-gray-50 p-8 mt-24">
-    <div class="max-w-7xl mx-auto space-y-8 gap-4 items-start">
+  <div class="min-h-screen bg-gray-50 p-8 mt-14">
+    <div class="max-w-7xl mx-auto space-y-3 items-start">
+      <Button variant="outline" size="sm" @click="$router.push('/')">
+        <Icon icon="mingcute:left-fill" width="24" height="24" />
+      </Button>
 
       <div class="gap-8 grid grid-cols-10 flex">
         <Card class="p-8 col-span-7 space-y-8">
